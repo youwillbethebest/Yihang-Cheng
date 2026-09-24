@@ -12,250 +12,218 @@
 <link rel="canonical" href="https://youwillbethebest.github.io/Yihang-Cheng/cola-icd/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.48.0/dist/tabler-icons.min.css">
 <style>
 :root{
-  --bg:#F6F7F1; --paper:#FFFFFF; --ink:#18210F; --ink-2:#4A5540; --ink-3:#7A8470;
-  --rule:#DADFD0; --lime:#C9E39E; --lime-ink:#18210F; --amber:#FFC96B; --link:#2F5D12;
-  --shadow:#18210F; --muted-bar:#DADFD0;
-  --display:"Bricolage Grotesque","Arial Black",system-ui,sans-serif;
-  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --bg:#FAF9F5; --surface-1:#F3F2EE; --surface-2:#FFFFFF;
+  --text-primary:#141413; --text-secondary:#5E5D59; --text-muted:#8A8983;
+  --border:rgba(20,20,19,.12); --border-strong:rgba(20,20,19,.22);
+  --accent:#2C6FD1; --accent-text:#1F5AB0; --accent-bg:#E6F0FC;
+  --success:#2E7D32; --bar-base:rgba(20,20,19,.18);
+  --radius:8px;
+  --sans:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
     color-scheme:dark;
-    --bg:#12170C; --paper:#1A2112; --ink:#E9F2DC; --ink-2:#B8C4A8; --ink-3:#86917A;
-    --rule:#2E3824; --lime:#B5D985; --lime-ink:#12170C; --amber:#E8A93A; --link:#B5D985;
-    --shadow:#B5D985; --muted-bar:#3A4630;
+    --bg:#1F1F1D; --surface-1:#2A2A27; --surface-2:#262624;
+    --text-primary:#F2F1EC; --text-secondary:#B7B5AD; --text-muted:#8C8A83;
+    --border:rgba(242,241,236,.12); --border-strong:rgba(242,241,236,.24);
+    --accent:#5C9BEF; --accent-text:#8DB9F5; --accent-bg:#1E3350;
+    --success:#7CC47F; --bar-base:rgba(242,241,236,.22);
   }
 }
 :root[data-theme="dark"]{
   color-scheme:dark;
-  --bg:#12170C; --paper:#1A2112; --ink:#E9F2DC; --ink-2:#B8C4A8; --ink-3:#86917A;
-  --rule:#2E3824; --lime:#B5D985; --lime-ink:#12170C; --amber:#E8A93A; --link:#B5D985;
-  --shadow:#B5D985; --muted-bar:#3A4630;
+  --bg:#1F1F1D; --surface-1:#2A2A27; --surface-2:#262624;
+  --text-primary:#F2F1EC; --text-secondary:#B7B5AD; --text-muted:#8C8A83;
+  --border:rgba(242,241,236,.12); --border-strong:rgba(242,241,236,.24);
+  --accent:#5C9BEF; --accent-text:#8DB9F5; --accent-bg:#1E3350;
+  --success:#7CC47F; --bar-base:rgba(242,241,236,.22);
 }
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.65;padding-inline:24px;padding-block:0 56px}
-a{color:var(--link);text-decoration-thickness:1px;text-underline-offset:3px}
-a:hover{text-decoration-thickness:2px}
-:focus-visible{outline:2px dashed var(--ink);outline-offset:3px}
-h1,h2,h3{font-family:var(--display);margin:0;line-height:1.1;text-wrap:balance}
-p{margin:0}
-.wrap{max-width:860px;margin:0 auto;padding-top:40px;display:flex;flex-direction:column;gap:56px}
+body{margin:0;background:var(--bg);color:var(--text-primary);font-family:var(--sans);font-size:16px;line-height:1.7;padding:0 16px 64px}
+a{color:var(--accent-text)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+h1,h2,h3,p{margin:0}
+h1{font-size:30px;font-weight:500;line-height:1.3;letter-spacing:-.01em;text-wrap:balance}
+.wrap{max-width:760px;margin:0 auto;padding-top:48px}
 
-.theme{position:fixed;top:calc(env(safe-area-inset-top,0px) + 18px);right:20px;z-index:10;width:40px;height:40px;display:grid;place-items:center;background:var(--paper);color:var(--ink);border:2px solid var(--ink);border-radius:50%;box-shadow:3px 3px 0 var(--shadow);cursor:pointer;transition:transform .12s,box-shadow .12s}
-.theme:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--shadow)}
-.theme svg{width:18px;height:18px}
-.theme .moon{display:none}
-:root[data-theme="dark"] .theme .sun{display:none}
-:root[data-theme="dark"] .theme .moon{display:block}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .theme .sun{display:none}:root:not([data-theme="light"]) .theme .moon{display:block}}
+.theme{position:fixed;top:16px;right:16px;width:36px;height:36px;display:grid;place-items:center;background:var(--surface-2);color:var(--text-primary);border:.5px solid var(--border-strong);border-radius:var(--radius);cursor:pointer;font-size:18px}
+.theme:hover{background:var(--surface-1)}
+.theme .ti-moon{display:none}
+:root[data-theme="dark"] .theme .ti-sun{display:none}
+:root[data-theme="dark"] .theme .ti-moon{display:inline}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .theme .ti-sun{display:none}:root:not([data-theme="light"]) .theme .ti-moon{display:inline}}
 
-.back{font:500 13px var(--mono);color:var(--ink-2);text-decoration:none;align-self:flex-start}
-.back:hover{color:var(--ink);text-decoration:underline}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.tag{font-size:12px;padding:4px 12px;border-radius:var(--radius);background:var(--surface-1);color:var(--text-secondary)}
+.tag.accent{background:var(--accent-bg);color:var(--accent-text)}
+.authors{margin-top:14px;font-size:16px}
+.authors a{text-decoration:none}
+.authors a:hover{text-decoration:underline}
+.aff{margin-top:4px;font-size:14px;color:var(--text-secondary);display:flex;align-items:center;gap:6px}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.pill{display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:14px;padding:7px 14px;border:.5px solid var(--border-strong);border-radius:var(--radius);color:var(--text-primary);background:transparent;text-decoration:none;cursor:pointer;line-height:1.3}
+.pill:hover{background:var(--surface-1)}
+.pill:active{transform:scale(.98)}
+.pill .ti{font-size:17px}
 
-.hero{display:flex;flex-direction:column;gap:18px;margin-top:-28px}
-.venue{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
-.vtag{font-family:var(--display);font-weight:800;font-size:15px;line-height:1.2;padding:5px 12px;background:var(--amber);color:var(--lime-ink);border:2px solid var(--ink);border-radius:8px;box-shadow:3px 3px 0 var(--shadow)}
-.vsub{font:500 11.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border:1.5px solid var(--ink);border-radius:999px;color:var(--ink)}
-.hero h1{font-size:clamp(32px,5.2vw,48px);font-weight:800;letter-spacing:-.015em;line-height:1.05}
-.hero h1 .hl{background:var(--lime);color:var(--lime-ink);padding:0 6px;border-radius:6px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
-.authors{font-size:18px}
-.authors a{color:var(--ink);font-weight:600}
-.aff{font-size:14.5px;color:var(--ink-2);margin-top:-12px}
-.btns{display:flex;gap:10px;flex-wrap:wrap}
-.btn{font:500 13px var(--mono);padding:7px 14px;border:2px solid var(--ink);border-radius:8px;background:var(--paper);color:var(--ink);text-decoration:none;box-shadow:3px 3px 0 var(--shadow);cursor:pointer;transition:transform .12s,box-shadow .12s;display:inline-flex;align-items:center;gap:6px}
-.btn:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--shadow);text-decoration:none}
-.btn.main{background:var(--lime);color:var(--lime-ink)}
-.btn svg{width:15px;height:15px}
-
-section{display:flex;flex-direction:column;gap:18px}
-h2{font-size:26px;font-weight:800;display:flex;align-items:center;gap:12px}
-h2::after{content:"";flex:1;height:1px;background:var(--rule)}
-.lead{font-size:17px}
+.sec{font-size:14px;color:var(--text-secondary);margin:48px 0 14px;display:flex;align-items:center;gap:8px}
+.sec .ti{font-size:18px}
+.lead{font-size:16px;color:var(--text-primary)}
 .lead p+p{margin-top:12px}
-.card{background:var(--paper);border:2.5px solid var(--ink);border-radius:14px;box-shadow:6px 6px 0 var(--shadow);padding:24px}
 
-.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
-.stat{border:1.5px solid var(--ink);border-radius:10px;padding:12px 14px;background:var(--paper)}
-.stat .big{font-family:var(--display);font-weight:800;font-size:30px;line-height:1.1}
-.stat .up{display:inline-block;font:500 12px var(--mono);background:var(--lime);color:var(--lime-ink);border:1.5px solid var(--ink);border-radius:4px;padding:0 6px;margin-top:6px}
-.stat .cap{font-size:13px;color:var(--ink-2);margin-top:6px;line-height:1.4}
-.note{font-size:13px;color:var(--ink-3)}
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+.mc{background:var(--surface-1);border-radius:var(--radius);padding:16px}
+.mc .l{font-size:13px;color:var(--text-secondary);line-height:1.4}
+.mc .v{font-size:26px;font-weight:500;margin-top:4px}
+.mc .d{font-size:12.5px;color:var(--success)}
 
-.bars{display:flex;flex-direction:column;gap:18px}
-.bars h3{font-size:17px;font-weight:600}
-.bgroup{display:flex;flex-direction:column;gap:6px}
-.bgroup .lbl{font:500 12.5px var(--mono);color:var(--ink-2)}
-.brow{display:grid;grid-template-columns:minmax(0,1fr) 52px;gap:10px;align-items:center}
-.track{height:18px;border-radius:5px}
-.bar{height:18px;border:1.5px solid var(--ink);border-radius:5px}
-.bar.us{background:var(--lime)}
-.bar.base{background:var(--muted-bar)}
-.brow .v{font:500 13px var(--mono);font-variant-numeric:tabular-nums}
-.brow .v.dim{color:var(--ink-3);font-weight:400}
-.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--ink-2)}
-.legend i{display:inline-block;width:12px;height:12px;border:1.5px solid var(--ink);border-radius:3px;margin-right:6px;vertical-align:-1px}
+.card{background:var(--surface-2);border:.5px solid var(--border);border-radius:12px;padding:18px 20px}
+.bars-title{font-size:13px;color:var(--text-secondary);margin-bottom:12px}
+.bars{display:grid;grid-template-columns:150px minmax(0,1fr) 48px;gap:8px 12px;align-items:center;font-size:13.5px}
+.bar{height:8px;border-radius:4px}
+.bar.us{background:var(--accent)}
+.bar.base{background:var(--bar-base)}
+.num{font-variant-numeric:tabular-nums}
+.num.dim{color:var(--text-secondary)}
+.num.b{font-weight:500}
+.sp{height:6px;grid-column:1/-1}
+.legend{display:flex;gap:18px;flex-wrap:wrap;margin-top:14px;font-size:12.5px;color:var(--text-secondary)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.note{margin-top:10px;font-size:13px;color:var(--text-muted)}
 
-.method{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;counter-reset:m}
-.step{border:2px solid var(--ink);border-radius:12px;background:var(--paper);padding:18px;display:flex;flex-direction:column;gap:8px}
-.step .n{counter-increment:m;font:500 12px var(--mono);color:var(--ink-3)}
-.step .n::before{content:"0" counter(m) " /"}
-.step h3{font-size:18px;font-weight:600}
-.step p{color:var(--ink-2);font-size:15px}
+.how{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.hw{border:.5px solid var(--border);border-radius:12px;padding:16px;background:var(--surface-2)}
+.hw .ti{font-size:22px;color:var(--accent-text)}
+.hw h3{margin:10px 0 4px;font-size:15px;font-weight:500}
+.hw p{font-size:13.5px;color:var(--text-secondary);line-height:1.55}
 
-.tablewrap{overflow-x:auto;border:2px solid var(--ink);border-radius:12px;background:var(--paper)}
-table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:520px}
-th,td{padding:10px 14px;text-align:right;border-bottom:1px solid var(--rule);font-variant-numeric:tabular-nums}
-th:first-child,td:first-child{text-align:left}
-thead th{font:500 12px var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3)}
-tbody tr:last-child td{border-bottom:0}
-td.ds{font-weight:600}
-.best{font-weight:600;background:var(--lime);color:var(--lime-ink);padding:1px 6px;border-radius:4px}
-.muted{color:var(--ink-3)}
+.repo{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.repo > .ti{font-size:26px}
+.repo .who{flex:1;min-width:180px}
+.repo .name{font-weight:500;font-size:15px}
+.repo .sub{font-size:13px;color:var(--text-secondary)}
+pre{margin:0;background:var(--surface-1);border-radius:var(--radius);padding:14px 16px;font:12.5px/1.65 var(--mono);color:var(--text-primary);overflow-x:auto;white-space:pre}
+.res{list-style:none;margin:14px 0 0;padding:0}
+.res li{display:flex;align-items:center;gap:10px;font-size:14px;padding:11px 0;border-top:.5px solid var(--border)}
+.res li .ti{font-size:18px;color:var(--text-secondary);flex:none}
+.res li span{flex:1}
+.res li a{text-decoration:none;white-space:nowrap}
+.res li a:hover{text-decoration:underline}
 
-pre{margin:0;font:12.5px/1.6 var(--mono);background:var(--bg);border:1px solid var(--rule);border-radius:8px;padding:14px 16px;overflow-x:auto;white-space:pre;color:var(--ink-2)}
-.res{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
-.res li{display:grid;grid-template-columns:120px minmax(0,1fr);gap:16px;padding:10px 0;border-top:1px solid var(--rule);font-size:15px}
-.res li:first-child{border-top:0}
-.res .k{font:500 12.5px var(--mono);color:var(--ink-3);padding-top:2px}
-.codehead{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
-.repo{font:500 15px var(--mono)}
+.copy{margin-top:10px}
 
-.author{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
-.avatar{width:72px;height:72px;border-radius:50%;background:var(--lime);color:var(--lime-ink);border:2.5px solid var(--ink);box-shadow:4px 4px 0 var(--shadow);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:26px;flex:none}
+.author{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.avatar{width:52px;height:52px;border-radius:50%;background:var(--accent-bg);color:var(--accent-text);display:grid;place-items:center;font-weight:500;flex:none}
 .author .who{flex:1;min-width:200px}
-.author .name{font-family:var(--display);font-weight:800;font-size:22px}
-.author .role{color:var(--ink-2);font-size:15px}
-.contact{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:16px;padding-top:14px;border-top:1px solid var(--rule);font-size:14px}
-.contact .k{font:500 12px var(--mono);color:var(--ink-3);margin-right:6px}
-.mail{font-family:var(--mono);font-size:13px;word-break:break-all}
-footer{font-size:13px;color:var(--ink-3);border-top:1px solid var(--rule);padding-top:16px}
+.author .name{font-weight:500;font-size:16px}
+.author .sub{font-size:13.5px;color:var(--text-secondary);line-height:1.5}
+.contact{border-top:.5px solid var(--border);margin-top:14px;padding-top:14px;display:flex;flex-wrap:wrap;gap:10px 22px;font-size:13.5px}
+.contact a{text-decoration:none;display:inline-flex;align-items:center;gap:6px;word-break:break-all}
+.contact a:hover{text-decoration:underline}
+footer{margin-top:56px;font-size:13px;color:var(--text-muted)}
+footer a{color:var(--text-secondary)}
 
-@media (max-width:760px){
-  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .method{grid-template-columns:minmax(0,1fr)}
-  .res li{grid-template-columns:minmax(0,1fr);gap:0}
+@media (max-width:560px){
+  .wrap{padding-top:64px}
+  h1{font-size:25px}
+  .bars{grid-template-columns:96px minmax(0,1fr) 44px;font-size:12.5px}
+  .res li{flex-wrap:wrap}
 }
-@media (max-width:480px){
-  body{padding-inline:16px}
-  .card{padding:18px}
-  .stats{grid-template-columns:minmax(0,1fr)}
-}
-@media (prefers-reduced-motion:reduce){.btn,.theme{transition:none}}
+@media (prefers-reduced-motion:reduce){.pill:active{transform:none}}
 </style>
 </head>
 <body>
-<button class="theme" id="themeBtn" type="button" aria-label="Switch between light and dark mode"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></button>
+<button class="theme" id="themeBtn" type="button" aria-label="Switch between light and dark mode"><i class="ti ti-sun" aria-hidden="true"></i><i class="ti ti-moon" aria-hidden="true"></i></button>
 
 <div class="wrap">
-  <a class="back" href="../">← Yihang Cheng</a>
-
-  <header class="hero">
-    <div class="venue"><span class="vtag">Findings of EMNLP 2026</span><span class="vsub">Poster</span><span class="vsub">arXiv 2608.30234</span></div>
-    <h1>CoLa-ICD: A Knowledge-Enhanced Framework for <span class="hl">Long-Tail</span> Automated Medical Coding</h1>
+  <header>
+    <div class="tags">
+      <span class="tag accent">Findings of EMNLP 2026</span>
+      <span class="tag">arXiv 2608.30234</span>
+    </div>
+    <h1>CoLa-ICD: A knowledge-enhanced framework for long-tail automated medical coding</h1>
     <p class="authors"><a href="../">Yihang Cheng</a>, Veronica Liesaputra, Andrew Trotman</p>
-    <p class="aff">University of Otago, Dunedin, New Zealand</p>
-    <div class="btns">
-      <a class="btn main" href="https://arxiv.org/abs/2608.30234" target="_blank" rel="noopener">Paper</a>
-      <a class="btn" href="https://arxiv.org/pdf/2608.30234" target="_blank" rel="noopener">PDF</a>
-      <a class="btn" href="https://github.com/youwillbethebest/Cola-ICD" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg>Code</a>
-      <a class="btn" href="#citation">BibTeX</a>
+    <p class="aff"><i class="ti ti-building" aria-hidden="true"></i>University of Otago, Dunedin, New Zealand</p>
+    <div class="pills">
+      <a class="pill" href="https://arxiv.org/abs/2608.30234" target="_blank" rel="noopener"><i class="ti ti-file-text" aria-hidden="true"></i>arXiv</a>
+      <a class="pill" href="https://arxiv.org/pdf/2608.30234" target="_blank" rel="noopener"><i class="ti ti-file-type-pdf" aria-hidden="true"></i>PDF</a>
+      <a class="pill" href="https://github.com/youwillbethebest/Cola-ICD" target="_blank" rel="noopener"><i class="ti ti-brand-github" aria-hidden="true"></i>Code</a>
+      <a class="pill" href="#citation"><i class="ti ti-quote" aria-hidden="true"></i>Cite</a>
     </div>
   </header>
 
-  <section id="overview">
-    <h2>Overview</h2>
-    <div class="lead">
-      <p>More than half of the ICD codes in MIMIC appear fewer than ten times in training. Those rare codes are hard to learn, and clinical notes rarely describe them in the wording of the official ICD description: a note says "former smoker" where the code says "personal history of tobacco use".</p>
-      <p>CoLa-ICD gives each code a richer, clinically worded representation and ties it to the exact span of the note that supports it. It combines UMLS synonyms with LLM-generated clinical terms, shares signal between related codes through a co-occurrence graph, lets each term look for its own evidence in the note, and uses contrastive learning with hard negatives so that look-alike codes stay apart.</p>
-    </div>
-  </section>
+  <div class="sec"><i class="ti ti-align-left" aria-hidden="true"></i>Overview</div>
+  <div class="lead">
+    <p>More than half of the ICD codes in MIMIC appear fewer than ten times in training. Those rare codes are hard to learn, and clinical notes rarely describe them in the wording of the official ICD description: a note says "former smoker" where the code says "personal history of tobacco use".</p>
+    <p>CoLa-ICD gives each code a richer, clinically worded representation and ties it to the exact span of the note that supports it. It combines UMLS synonyms with LLM-generated clinical terms, shares signal between related codes through a co-occurrence graph, lets each term look for its own evidence in the note, and uses contrastive learning with hard negatives so that look-alike codes stay apart.</p>
+  </div>
 
-  <section id="results">
-    <h2>Key results</h2>
-    <div class="stats">
-      <div class="stat"><div class="big">0.204</div><span class="up">+61%</span><p class="cap">Micro-F1 on rare MIMIC-IV codes (1–10 examples)</p></div>
-      <div class="stat"><div class="big">0.108</div><span class="up">+0.039</span><p class="cap">Macro-F1 on MIMIC-IV ICD-10 (26,096 codes)</p></div>
-      <div class="stat"><div class="big">0.600</div><span class="up">+0.021</span><p class="cap">Micro-F1 on MIMIC-IV ICD-10</p></div>
-      <div class="stat"><div class="big">0.194</div><span class="up">+47%</span><p class="cap">Micro-F1 on rare MIMIC-III codes (1–10 examples)</p></div>
-    </div>
-    <p class="note">Gains are measured against GKI-ICD, the strongest baseline. All results are averaged over 10 random seeds.</p>
+  <div class="sec"><i class="ti ti-chart-bar" aria-hidden="true"></i>Key results · MIMIC-IV ICD-10 (26,096 codes)</div>
+  <div class="metrics">
+    <div class="mc"><div class="l">Micro-F1</div><div class="v">0.600</div><div class="d">+0.021 vs GKI-ICD</div></div>
+    <div class="mc"><div class="l">Macro-F1</div><div class="v">0.108</div><div class="d">+0.039 vs GKI-ICD</div></div>
+    <div class="mc"><div class="l">Precision@8</div><div class="v">0.723</div><div class="d">+0.021 vs GKI-ICD</div></div>
+    <div class="mc"><div class="l">Rare codes (1–10)</div><div class="v">0.204</div><div class="d">from 0.127 · +61%</div></div>
+  </div>
 
-    <div class="card bars">
-      <h3>Micro-F1 by code frequency</h3>
-      <div class="bgroup">
-        <span class="lbl">MIMIC-III · 1–10 examples</span>
-        <div class="brow"><div class="track"><div class="bar us" style="width:51%"></div></div><span class="v">0.194</span></div>
-        <div class="brow"><div class="track"><div class="bar base" style="width:35%"></div></div><span class="v dim">0.132</span></div>
-      </div>
-      <div class="bgroup">
-        <span class="lbl">MIMIC-III · 11–50 examples</span>
-        <div class="brow"><div class="track"><div class="bar us" style="width:89%"></div></div><span class="v">0.338</span></div>
-        <div class="brow"><div class="track"><div class="bar base" style="width:85%"></div></div><span class="v dim">0.322</span></div>
-      </div>
-      <div class="bgroup">
-        <span class="lbl">MIMIC-IV · 1–10 examples</span>
-        <div class="brow"><div class="track"><div class="bar us" style="width:54%"></div></div><span class="v">0.204</span></div>
-        <div class="brow"><div class="track"><div class="bar base" style="width:33%"></div></div><span class="v dim">0.127</span></div>
-      </div>
-      <div class="bgroup">
-        <span class="lbl">MIMIC-IV · 11–50 examples</span>
-        <div class="brow"><div class="track"><div class="bar us" style="width:94%"></div></div><span class="v">0.359</span></div>
-        <div class="brow"><div class="track"><div class="bar base" style="width:80%"></div></div><span class="v dim">0.303</span></div>
-      </div>
-      <div class="legend"><span><i style="background:var(--lime)"></i>CoLa-ICD</span><span><i style="background:var(--muted-bar)"></i>GKI-ICD</span></div>
+  <div class="card" style="margin-top:14px">
+    <div class="bars-title">Micro-F1 by code frequency</div>
+    <div class="bars">
+      <span>MIMIC-III · 1–10</span><div class="bar base" style="width:35%"></div><span class="num dim">0.132</span>
+      <span></span><div class="bar us" style="width:51%"></div><span class="num b">0.194</span>
+      <div class="sp"></div>
+      <span>MIMIC-III · 11–50</span><div class="bar base" style="width:85%"></div><span class="num dim">0.322</span>
+      <span></span><div class="bar us" style="width:89%"></div><span class="num b">0.338</span>
+      <div class="sp"></div>
+      <span>MIMIC-IV · 1–10</span><div class="bar base" style="width:33%"></div><span class="num dim">0.127</span>
+      <span></span><div class="bar us" style="width:54%"></div><span class="num b">0.204</span>
+      <div class="sp"></div>
+      <span>MIMIC-IV · 11–50</span><div class="bar base" style="width:80%"></div><span class="num dim">0.303</span>
+      <span></span><div class="bar us" style="width:94%"></div><span class="num b">0.359</span>
     </div>
-
-    <div class="tablewrap">
-      <table>
-        <thead><tr><th>Dataset</th><th style="text-align:left">Model</th><th>Macro-F1</th><th>Micro-F1</th><th>P@8</th><th>Macro-AUC</th></tr></thead>
-        <tbody>
-          <tr><td class="ds" rowspan="2">MIMIC-III ICD-9</td><td class="muted" style="text-align:left">GKI-ICD</td><td class="muted">0.123</td><td class="muted">0.612</td><td class="muted">0.777</td><td class="muted">–</td></tr>
-          <tr><td style="text-align:left"><b>CoLa-ICD</b></td><td><span class="best">0.135</span></td><td><span class="best">0.621</span></td><td><span class="best">0.781</span></td><td>0.969</td></tr>
-          <tr><td class="ds" rowspan="2">MIMIC-IV ICD-10</td><td class="muted" style="text-align:left">GKI-ICD</td><td class="muted">0.069</td><td class="muted">0.579</td><td class="muted">0.702</td><td class="muted">–</td></tr>
-          <tr><td style="text-align:left"><b>CoLa-ICD</b></td><td><span class="best">0.108</span></td><td><span class="best">0.600</span></td><td><span class="best">0.723</span></td><td>0.977</td></tr>
-        </tbody>
-      </table>
+    <div class="legend">
+      <span><i style="background:var(--accent)"></i>CoLa-ICD</span>
+      <span><i style="background:var(--bar-base)"></i>GKI-ICD (strongest baseline)</span>
     </div>
-    <p class="note">Full comparisons with CAML, PLM-ICD, PLM-CA, MSMN, KEPTLongformer and CoRelation are in the paper.</p>
-  </section>
+  </div>
+  <p class="note">All results are averaged over 10 random seeds. Full comparisons with CAML, PLM-ICD, PLM-CA, MSMN, KEPTLongformer and CoRelation are in the paper.</p>
 
-  <section id="method">
-    <h2>Method</h2>
-    <div class="method">
-      <div class="step"><span class="n"></span><h3>Knowledge injection</h3><p>Each code gets a list of terms: its official description, UMLS synonyms, and Gemini-generated abbreviations and clinical expressions that match how notes are actually written.</p></div>
-      <div class="step"><span class="n"></span><h3>Co-occurrence graph</h3><p>A PPMI-weighted graph of codes that appear together in training, processed by a two-layer GCN, lets rare codes borrow signal from clinically related ones.</p></div>
-      <div class="step"><span class="n"></span><h3>Multi-head term attention</h3><p>Every term queries the long note separately, so one head can catch an abbreviation while another finds the formal diagnosis phrase.</p></div>
-      <div class="step"><span class="n"></span><h3>Label-aware contrastive learning</h3><p>The evidence for a code is pulled towards that code and pushed away from similar but wrong codes, chosen as hard negatives.</p></div>
-    </div>
-    <p class="note">The text encoder is SapBERT; long discharge summaries are split into chunks and encoded without truncation.</p>
-  </section>
+  <div class="sec"><i class="ti ti-topology-star-3" aria-hidden="true"></i>How it works</div>
+  <div class="how">
+    <div class="hw"><i class="ti ti-books" aria-hidden="true"></i><h3>Knowledge injection</h3><p>UMLS synonyms plus LLM-generated clinical terms for every code</p></div>
+    <div class="hw"><i class="ti ti-affiliate" aria-hidden="true"></i><h3>Co-occurrence GNN</h3><p>A PPMI code graph shares signal across related labels</p></div>
+    <div class="hw"><i class="ti ti-focus-2" aria-hidden="true"></i><h3>Term attention</h3><p>Each term queries the note for its own evidence</p></div>
+    <div class="hw"><i class="ti ti-arrows-diff" aria-hidden="true"></i><h3>Contrastive learning</h3><p>Hard negatives keep look-alike codes apart</p></div>
+  </div>
 
-  <section id="code">
-    <h2>Code</h2>
-    <div class="card" style="display:flex;flex-direction:column;gap:16px">
-      <div class="codehead">
-        <span class="repo">youwillbethebest/Cola-ICD</span>
-        <a class="btn main" href="https://github.com/youwillbethebest/Cola-ICD" target="_blank" rel="noopener">View on GitHub</a>
+  <div class="sec"><i class="ti ti-code" aria-hidden="true"></i>Code and resources</div>
+  <div class="card">
+    <div class="repo">
+      <i class="ti ti-brand-github" aria-hidden="true"></i>
+      <div class="who">
+        <p class="name">youwillbethebest/Cola-ICD</p>
+        <p class="sub">Official PyTorch implementation · Python 3.10</p>
       </div>
+      <a class="pill" href="https://github.com/youwillbethebest/Cola-ICD" target="_blank" rel="noopener">View repository <i class="ti ti-external-link" aria-hidden="true"></i></a>
+    </div>
 <pre>git clone https://github.com/youwillbethebest/Cola-ICD.git
 cd Cola-ICD
 conda create -n cola-icd python=3.10
 conda activate cola-icd
 pip install -r requirements.txt</pre>
-      <ul class="res">
-        <li><span class="k">Knowledge</span><span>Generated ICD-10 synonyms, abbreviations and clinical expressions are in the repo under <a href="https://github.com/youwillbethebest/Cola-ICD/tree/main/Knowledge%20injection" target="_blank" rel="noopener">Knowledge injection</a>.</span></li>
-        <li><span class="k">Encoder</span><span><a href="https://huggingface.co/cambridgeltl/SapBERT-from-PubMedBERT-fulltext" target="_blank" rel="noopener">SapBERT-from-PubMedBERT-fulltext</a> on Hugging Face.</span></li>
-        <li><span class="k">Data</span><span><a href="https://physionet.org/content/mimiciii/" target="_blank" rel="noopener">MIMIC-III v1.4</a> and <a href="https://physionet.org/content/mimiciv/" target="_blank" rel="noopener">MIMIC-IV v2.2</a> require credentialed access on PhysioNet. Splits follow <a href="https://github.com/JoakimEdin/medical-coding-reproducibility" target="_blank" rel="noopener">Edin et al. (2023)</a>.</span></li>
-      </ul>
-    </div>
-  </section>
+    <ul class="res">
+      <li><i class="ti ti-books" aria-hidden="true"></i><span>Knowledge injection files (ICD-10 synonyms, abbreviations, clinical expressions)</span><a href="https://github.com/youwillbethebest/Cola-ICD/tree/main/Knowledge%20injection" target="_blank" rel="noopener">Browse</a></li>
+      <li><i class="ti ti-cpu" aria-hidden="true"></i><span>Encoder: SapBERT-from-PubMedBERT-fulltext</span><a href="https://huggingface.co/cambridgeltl/SapBERT-from-PubMedBERT-fulltext" target="_blank" rel="noopener">Hugging Face</a></li>
+      <li><i class="ti ti-database" aria-hidden="true"></i><span>Data: MIMIC-III v1.4 and MIMIC-IV v2.2 (credentialed access)</span><a href="https://physionet.org/content/mimiciv/" target="_blank" rel="noopener">PhysioNet</a></li>
+    </ul>
+  </div>
 
-  <section id="citation">
-    <h2>Citation</h2>
+  <div class="sec" id="citation"><i class="ti ti-quote" aria-hidden="true"></i>Citation</div>
 <pre id="bib">@inproceedings{cheng-etal-2026-cola-icd,
   title     = {{CoLa-ICD}: A Knowledge-Enhanced Framework for Long-Tail Automated Medical Coding},
   author    = {Cheng, Yihang and Liesaputra, Veronica and Trotman, Andrew},
@@ -265,27 +233,25 @@ pip install -r requirements.txt</pre>
   address   = {Budapest, Hungary},
   publisher = {Association for Computational Linguistics}
 }</pre>
-    <div class="btns"><button class="btn" type="button" id="copyBib">Copy BibTeX</button></div>
-  </section>
+  <button class="pill copy" type="button" id="copyBib"><i class="ti ti-copy" aria-hidden="true"></i><span>Copy BibTeX</span></button>
 
-  <section id="more">
-    <h2>More information</h2>
-    <div class="card">
-      <div class="author">
-        <div class="avatar" aria-hidden="true">YC</div>
-        <div class="who">
-          <p class="name">Yihang Cheng</p>
-          <p class="role">First author · PhD candidate in Computer Science, University of Otago. Clinical NLP, medical coding and medical AI agents.</p>
-        </div>
-        <a class="btn main" href="../">Personal homepage →</a>
+  <div class="sec"><i class="ti ti-info-circle" aria-hidden="true"></i>More information</div>
+  <div class="card">
+    <div class="author">
+      <div class="avatar" aria-hidden="true">YC</div>
+      <div class="who">
+        <p class="name">Yihang Cheng</p>
+        <p class="sub">First author · PhD candidate, University of Otago</p>
+        <p class="sub">Clinical NLP, medical coding, medical AI agents</p>
       </div>
-      <div class="contact">
-        <span><span class="k">Email</span><a class="mail" href="mailto:yihang.cheng@postgrad.otago.ac.nz">yihang.cheng@postgrad.otago.ac.nz</a></span>
-        <span><span class="k">GitHub</span><a href="https://github.com/youwillbethebest" target="_blank" rel="noopener">youwillbethebest</a></span>
-        <span><span class="k">Scholar</span><a href="https://scholar.google.com/citations?user=I-hxfbAAAAAJ" target="_blank" rel="noopener">Google Scholar</a></span>
-      </div>
+      <a class="pill" href="../"><i class="ti ti-home" aria-hidden="true"></i>Personal homepage <i class="ti ti-external-link" aria-hidden="true"></i></a>
     </div>
-  </section>
+    <div class="contact">
+      <a href="mailto:yihang.cheng@postgrad.otago.ac.nz"><i class="ti ti-mail" aria-hidden="true"></i>yihang.cheng@postgrad.otago.ac.nz</a>
+      <a href="https://github.com/youwillbethebest" target="_blank" rel="noopener"><i class="ti ti-brand-github" aria-hidden="true"></i>youwillbethebest</a>
+      <a href="https://scholar.google.com/citations?user=I-hxfbAAAAAJ" target="_blank" rel="noopener"><i class="ti ti-school" aria-hidden="true"></i>Google Scholar</a>
+    </div>
+  </div>
 
   <footer>© 2026 Yihang Cheng · University of Otago · <a href="../">Home</a></footer>
 </div>
@@ -298,10 +264,10 @@ pip install -r requirements.txt</pre>
     var dark=cur?cur==='dark':matchMedia('(prefers-color-scheme: dark)').matches;
     root.setAttribute('data-theme',dark?'light':'dark');
   });
-  var bib=document.getElementById('bib'),cb=document.getElementById('copyBib');
+  var bib=document.getElementById('bib'),cb=document.getElementById('copyBib'),lbl=cb.querySelector('span');
   cb.addEventListener('click',function(){
-    function sel(){var r=document.createRange();r.selectNodeContents(bib);var s=getSelection();s.removeAllRanges();s.addRange(r);cb.textContent='Selected';}
-    try{navigator.clipboard.writeText(bib.textContent).then(function(){cb.textContent='Copied';setTimeout(function(){cb.textContent='Copy BibTeX';},1600);},sel);}catch(e){sel();}
+    function sel(){var r=document.createRange();r.selectNodeContents(bib);var s=getSelection();s.removeAllRanges();s.addRange(r);lbl.textContent='Selected';}
+    try{navigator.clipboard.writeText(bib.textContent).then(function(){lbl.textContent='Copied';setTimeout(function(){lbl.textContent='Copy BibTeX';},1600);},sel);}catch(e){sel();}
   });
 })();
 </script>
