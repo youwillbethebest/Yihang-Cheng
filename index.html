@@ -3,272 +3,249 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Yihang Cheng - clinical NLP researcher at the University of Otago working on automated ICD coding (CoLa-ICD, EMNLP 2026).">
+<meta name="description" content="Yihang Cheng, PhD candidate in Computer Science at the University of Otago. AI in healthcare, clinical NLP and medical AI agents.">
 <title>Yihang Cheng</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Work+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
 :root{
-  --bg:#C9E39E; --ink:#15210A; --ink-2:#3A4A28; --paper:#FFFDF6;
-  --amber:#FFC96B; --pink:#F7B8CE; --sky:#AFD3F5; --lime:#E6F5C9;
-  --shadow:#15210A; --on-accent:#15210A;
-  --display:"Bricolage Grotesque", "Arial Black", system-ui, sans-serif;
-  --body:"Work Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
-  --bw:2.5px; --off:6px; --r:14px;
+  --bg:#F6F7F1; --paper:#FFFFFF; --ink:#18210F; --ink-2:#4A5540; --ink-3:#7A8470;
+  --rule:#DADFD0; --lime:#C9E39E; --lime-ink:#18210F; --amber:#FFC96B; --link:#2F5D12;
+  --shadow:#18210F;
+  --display:"Bricolage Grotesque","Arial Black",system-ui,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
     color-scheme:dark;
-    --bg:#141C0C; --ink:#EAF5D6; --ink-2:#B9C8A2; --paper:#1F2A14;
-    --amber:#E8A93A; --pink:#E58AAB; --sky:#6FA8DC; --lime:#2A3A18;
-    --shadow:#A8D46A; --on-accent:#15210A;
+    --bg:#12170C; --paper:#1A2112; --ink:#E9F2DC; --ink-2:#B8C4A8; --ink-3:#86917A;
+    --rule:#2E3824; --lime:#B5D985; --lime-ink:#12170C; --amber:#E8A93A; --link:#B5D985;
+    --shadow:#B5D985;
   }
 }
 :root[data-theme="dark"]{
   color-scheme:dark;
-  --bg:#141C0C; --ink:#EAF5D6; --ink-2:#B9C8A2; --paper:#1F2A14;
-  --amber:#E8A93A; --pink:#E58AAB; --sky:#6FA8DC; --lime:#2A3A18;
-  --shadow:#A8D46A; --on-accent:#15210A;
+  --bg:#12170C; --paper:#1A2112; --ink:#E9F2DC; --ink-2:#B8C4A8; --ink-3:#86917A;
+  --rule:#2E3824; --lime:#B5D985; --lime-ink:#12170C; --amber:#E8A93A; --link:#B5D985;
+  --shadow:#B5D985;
 }
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;padding-inline:20px;padding-block:0 48px}
-.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:40px}
-h1,h2,h3{font-family:var(--display);line-height:1.02;margin:0;text-wrap:balance}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.65;padding-inline:24px;padding-block:0 56px}
+a{color:var(--link);text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2px dashed var(--ink);outline-offset:3px}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.1;text-wrap:balance}
 p{margin:0}
-a{color:inherit}
-.box{background:var(--paper);border:var(--bw) solid var(--ink);border-radius:var(--r);box-shadow:var(--off) var(--off) 0 var(--shadow)}
-.lift{transition:transform .15s ease, box-shadow .15s ease}
-.lift:hover{transform:translate(3px,3px);box-shadow:3px 3px 0 var(--shadow)}
-.lift:active{transform:translate(var(--off),var(--off));box-shadow:0 0 0 var(--shadow)}
-:focus-visible{outline:3px dashed var(--ink);outline-offset:4px}
-.label{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.layout{max-width:1060px;margin:0 auto;display:grid;grid-template-columns:280px minmax(0,1fr);gap:56px;padding-top:56px}
 
-nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;padding-block:14px;background:var(--bg)}
-.navin{max-width:1040px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
-.logo{font-family:var(--display);font-weight:800;font-size:22px;text-decoration:none;display:flex;align-items:center;gap:8px}
-.logo span{display:inline-grid;place-items:center;width:34px;height:34px;border:var(--bw) solid var(--ink);border-radius:50%;background:var(--amber);color:var(--on-accent);font-size:17px}
-.links{display:flex;gap:8px;flex-wrap:wrap}
-.pill{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border:var(--bw) solid var(--ink);border-radius:999px;background:var(--paper);font-weight:600;font-size:14px;text-decoration:none;color:var(--ink);cursor:pointer;font-family:var(--body)}
-.pill.theme{width:38px;justify-content:center;padding:6px 0}
+/* sidebar */
+.side{position:sticky;top:calc(env(safe-area-inset-top,0px) + 40px);align-self:start;display:flex;flex-direction:column;gap:18px}
+.avatar{width:112px;height:112px;border-radius:50%;background:var(--lime);color:var(--lime-ink);border:2.5px solid var(--ink);box-shadow:5px 5px 0 var(--shadow);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:40px}
+.side h1{font-size:32px;font-weight:800;letter-spacing:-.01em}
+.role{font-weight:500}
+.role span{display:block;color:var(--ink-2);font-weight:400}
+.areas{display:flex;flex-direction:column;gap:2px;font-size:14px;color:var(--ink-2)}
+.areas span::before{content:"";display:inline-block;width:8px;height:8px;background:var(--lime);border:1.5px solid var(--ink);margin-right:8px;vertical-align:1px}
+.links{list-style:none;margin:0;padding:14px 0 0;border-top:1px solid var(--rule);display:flex;flex-direction:column;gap:6px;font-size:15px}
+.links a{text-decoration:none;color:var(--ink);display:inline-flex;gap:8px;align-items:baseline}
+.links a:hover{text-decoration:underline}
+.links .k{font-family:var(--mono);font-size:12px;color:var(--ink-3);width:62px;flex:none}
+.email{display:flex;flex-direction:column;gap:2px;margin-top:-6px}
+.email .k{font-family:var(--mono);font-size:12px;color:var(--ink-3)}
+.mail{font-family:var(--mono);font-size:12px;color:var(--ink-2);word-break:break-all;user-select:all}
+.theme{align-self:flex-start;background:none;border:1px solid var(--rule);border-radius:999px;color:var(--ink-2);font:500 12px var(--mono);padding:4px 12px;cursor:pointer}
 
-.hero{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:24px;padding-top:12px}
-.hero-main{background:var(--amber);color:var(--on-accent);padding:36px 32px 32px;display:flex;flex-direction:column;gap:20px;position:relative}
-.hero-main h1{font-size:clamp(46px,8vw,88px);font-weight:800;letter-spacing:-.02em}
-.hero-main p{font-size:clamp(18px,2.2vw,22px);max-width:30ch;font-weight:500}
-.sticker{position:absolute;right:22px;top:-18px;transform:rotate(6deg);background:var(--pink);color:var(--on-accent);border:var(--bw) solid var(--ink);border-radius:999px;padding:6px 14px;font-weight:600;font-size:14px;box-shadow:3px 3px 0 var(--shadow)}
-.hero-side{display:grid;gap:24px;grid-template-rows:auto 1fr}
-.card{padding:22px}
-.now{background:var(--sky);color:var(--on-accent)}
-.now h3{font-size:22px;margin:8px 0 6px}
-.facts{display:flex;flex-direction:column;gap:12px}
-.fact{display:flex;justify-content:space-between;gap:12px;border-bottom:2px dashed var(--ink-2);padding-bottom:10px}
-.fact:last-child{border-bottom:0;padding-bottom:0}
-.fact b{font-weight:600}
-.fact span{color:var(--ink-2);text-align:right}
-
-.ticker{overflow:hidden;border-block:var(--bw) solid var(--ink);background:var(--ink);color:var(--bg);margin-inline:-20px}
-.track{display:flex;gap:28px;width:max-content;padding-block:10px;animation:roll 40s linear infinite;font-family:var(--mono);font-size:14px}
-.track b{color:var(--amber);font-weight:500}
-@keyframes roll{to{transform:translateX(-50%)}}
-
+/* main */
+main{display:flex;flex-direction:column;gap:56px;max-width:700px}
 section{display:flex;flex-direction:column;gap:18px}
-.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
-.sec-head h2{font-size:clamp(32px,5vw,48px);font-weight:800}
-.paper{display:grid;grid-template-columns:minmax(0,1fr) 220px;overflow:hidden}
-.paper-body{padding:28px;display:flex;flex-direction:column;gap:14px}
-.venue{display:inline-flex;align-self:flex-start;background:var(--ink);color:var(--paper);padding:4px 12px;border-radius:999px}
-.paper h3{font-size:clamp(24px,3.2vw,34px);font-weight:800}
+h2{font-size:26px;font-weight:800;display:flex;align-items:center;gap:12px}
+h2::after{content:"";flex:1;height:1px;background:var(--rule)}
+.about p+p{margin-top:12px}
+.hl{background:linear-gradient(transparent 58%,var(--lime) 58%);padding:0 2px}
+
+.news{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.news li{display:grid;grid-template-columns:78px minmax(0,1fr);gap:14px}
+.date{font-family:var(--mono);font-size:13px;color:var(--ink-3);padding-top:2px;font-variant-numeric:tabular-nums}
+.badge{display:inline-block;font:500 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:1px 7px;border:1.5px solid var(--ink);border-radius:4px;background:var(--amber);color:var(--lime-ink);margin-right:6px;vertical-align:1px}
+
+.pub{background:var(--paper);border:2.5px solid var(--ink);border-radius:14px;box-shadow:6px 6px 0 var(--shadow);padding:24px;display:flex;flex-direction:column;gap:12px}
+.venue{font:500 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
+.pub h3{font-size:21px;font-weight:600;line-height:1.25}
 .authors{color:var(--ink-2)}
-.authors u{text-decoration-thickness:3px;text-decoration-color:var(--amber);text-underline-offset:3px;color:var(--ink);font-weight:600}
-.tags{display:flex;gap:8px;flex-wrap:wrap}
-.tag{padding:3px 10px;border:2px solid var(--ink);border-radius:8px;font-size:13px;font-weight:500;background:var(--lime)}
-.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px}
-.btn{display:inline-flex;align-items:center;gap:6px;padding:9px 16px;border:var(--bw) solid var(--ink);border-radius:10px;font-weight:600;font-size:15px;text-decoration:none;background:var(--paper);color:var(--ink);box-shadow:3px 3px 0 var(--shadow);cursor:pointer;font-family:var(--body)}
-.btn.primary{background:var(--pink);color:var(--on-accent)}
-.btn.todo{border-style:dashed;box-shadow:none;color:var(--ink-2)}
-.tail{border-left:var(--bw) solid var(--ink);background:var(--lime);padding:18px 16px;display:flex;flex-direction:column;gap:10px}
-.tail canvas{width:100%;height:150px;display:block}
-.tail p{font-size:13px;line-height:1.45;color:var(--ink-2)}
+.authors b{color:var(--ink);font-weight:600}
+.result{font-size:15px;color:var(--ink-2);border-left:3px solid var(--lime);padding-left:12px}
+.result strong{color:var(--ink);font-weight:600}
+.btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn{font:500 13px var(--mono);padding:6px 12px;border:2px solid var(--ink);border-radius:8px;background:var(--paper);color:var(--ink);text-decoration:none;box-shadow:3px 3px 0 var(--shadow);cursor:pointer;transition:transform .12s,box-shadow .12s}
+.btn:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--shadow);text-decoration:none}
+.btn.main{background:var(--lime);color:var(--lime-ink)}
+.bib{display:none;margin:0;font:12.5px/1.55 var(--mono);background:var(--bg);border:1px solid var(--rule);border-radius:8px;padding:12px 14px;overflow-x:auto;white-space:pre;color:var(--ink-2)}
+.bib.open{display:block}
+
+.research{display:flex;flex-direction:column;gap:22px}
+.proj h3{font-size:18px;font-weight:600;display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.status{font:500 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;border:1.5px solid var(--ink)}
+.status.done{background:var(--lime);color:var(--lime-ink)}
+.status.wip{background:transparent;color:var(--ink);border-style:dashed}
+.proj p{margin-top:6px;color:var(--ink-2)}
+
+.group{display:flex;flex-direction:column;gap:14px}
+.group h4{margin:8px 0 0;font:500 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:16px}
+.row .date{font-size:12.5px}
+.row b{font-weight:600}
+.row .org{color:var(--ink-2)}
+.row .note{font-size:14.5px;color:var(--ink-2);margin-top:2px}
 
 .two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px}
-.about p+p{margin-top:12px}
-.about p{max-width:60ch}
-.interests{display:flex;flex-wrap:wrap;gap:10px}
-.interests span{padding:8px 14px;border:var(--bw) solid var(--ink);border-radius:999px;font-weight:600;background:var(--paper)}
-.interests span:nth-child(3n+1){background:var(--amber);color:var(--on-accent)}
-.interests span:nth-child(3n+2){background:var(--sky);color:var(--on-accent)}
-.interests span:nth-child(3n){background:var(--pink);color:var(--on-accent)}
+.plain{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;font-size:15px;color:var(--ink-2)}
+.plain b{color:var(--ink);font-weight:500}
+footer{font-size:13px;color:var(--ink-3);border-top:1px solid var(--rule);padding-top:16px}
 
-.contact{background:var(--pink);color:var(--on-accent);padding:32px;display:flex;flex-direction:column;gap:16px}
-.contact h2{font-size:clamp(34px,6vw,60px);font-weight:800}
-.mailrow{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-.mail{font-family:var(--mono);font-size:clamp(14px,2vw,17px);background:var(--paper);color:var(--ink);border:var(--bw) solid var(--ink);border-radius:10px;padding:9px 14px;user-select:all;word-break:break-all}
-.copied{font-size:14px;font-weight:600}
-footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--ink-2);font-size:14px}
-
-@media (max-width:780px){
-  .hero,.two,.paper{grid-template-columns:minmax(0,1fr)}
-  .tail{border-left:0;border-top:var(--bw) solid var(--ink)}
-  .hero-main{padding:30px 22px 24px}
-  .paper-body,.contact{padding:22px}
+@media (max-width:860px){
+  .layout{grid-template-columns:minmax(0,1fr);gap:40px;padding-top:32px}
+  .side{position:static}
+  .row{grid-template-columns:minmax(0,1fr);gap:0}
+  .two{grid-template-columns:minmax(0,1fr)}
 }
-@media (prefers-reduced-motion:reduce){
-  .track{animation:none}
-  .lift,.lift:hover{transition:none}
+@media (max-width:480px){
+  .news li{grid-template-columns:minmax(0,1fr);gap:0}
+  .pub{padding:18px}
 }
+@media (prefers-reduced-motion:reduce){.btn{transition:none}}
 </style>
 </head>
 <body>
-<nav>
-  <div class="navin">
-    <a class="logo" href="#top"><span>Y</span>Yihang</a>
-    <div class="links">
-      <a class="pill lift" href="#research">Research</a>
-      <a class="pill lift" href="#about">About</a>
-      <a class="pill lift" href="#contact">Contact</a>
-      <button class="pill theme lift" id="themeBtn" aria-label="Switch colour theme">◐</button>
+<div class="layout">
+  <aside class="side">
+    <div class="avatar" aria-hidden="true">YC</div>
+    <h1>Yihang Cheng</h1>
+    <p class="role">PhD Candidate in Computer Science<span>University of Otago, New Zealand</span></p>
+    <div class="areas">
+      <span>AI in Healthcare</span>
+      <span>Clinical NLP</span>
+      <span>Medical AI Agents</span>
     </div>
-  </div>
-</nav>
+    <ul class="links">
+      <li><a href="https://scholar.google.com/citations?user=I-hxfbAAAAAJ" target="_blank" rel="noopener"><span class="k">Scholar</span>Google Scholar</a></li>
+      <li><a href="https://www.linkedin.com/in/yihang-cheng-615ab72b6" target="_blank" rel="noopener"><span class="k">LinkedIn</span>yihang-cheng</a></li>
+      <li><a href="https://github.com/youwillbethebest" target="_blank" rel="noopener"><span class="k">GitHub</span>youwillbethebest</a></li>
+    </ul>
+    <div class="email"><span class="k">Email</span><span class="mail" id="mail">yihang.cheng@postgrad.otago.ac.nz</span></div>
+    <button class="theme" id="themeBtn" type="button">Light / dark</button>
+  </aside>
 
-<main class="wrap" id="top">
-  <div class="hero">
-    <div class="hero-main box">
-      <div class="sticker">EMNLP 2026 ✦</div>
-      <p class="label">Clinical NLP · University of Otago</p>
-      <h1>Hey, I'm Yihang.</h1>
-      <p>I teach language models to read clinical notes and assign the right ICD codes, including the rare ones.</p>
-      <div class="actions">
-        <a class="btn lift" href="#research">See my research →</a>
-        <a class="btn lift" href="#contact">Say hi</a>
-      </div>
-    </div>
-    <div class="hero-side">
-      <div class="box card now">
-        <p class="label">Right now</p>
-        <h3>Presenting CoLa-ICD at EMNLP 2026</h3>
-        <p>A poster on knowledge-enhanced coding for long-tail diagnoses.</p>
-      </div>
-      <div class="box card facts">
-        <div class="fact"><b>Based at</b><span>University of Otago</span></div>
-        <div class="fact"><b>Field</b><span>Automated medical coding</span></div>
-        <div class="fact"><b>Latest paper</b><span>EMNLP 2026</span></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="ticker" aria-hidden="true">
-    <div class="track" id="track"></div>
-  </div>
-
-  <section id="research">
-    <div class="sec-head">
-      <h2>Research</h2>
-      <span class="label">Selected work</span>
-    </div>
-    <article class="box paper">
-      <div class="paper-body">
-        <span class="venue label">EMNLP 2026 · Poster</span>
-        <h3>CoLa-ICD: A Knowledge-Enhanced Framework for Long-Tail Automated Medical Coding</h3>
-        <p class="authors"><u>Yihang Cheng</u>, Veronica Liesaputra, Andrew Trotman · University of Otago</p>
-        <div class="tags">
-          <span class="tag">ICD coding</span>
-          <span class="tag">Long-tail labels</span>
-          <span class="tag">Knowledge enhancement</span>
-          <span class="tag">Clinical text</span>
-        </div>
-        <div class="actions">
-          <a class="btn primary lift" href="#research" title="Replace with the paper link">Paper ↗</a>
-          <a class="btn todo" href="#research" title="Replace with the poster link">+ Poster link</a>
-          <a class="btn todo" href="#research" title="Replace with the code link">+ Code link</a>
-        </div>
-      </div>
-      <div class="tail">
-        <p class="label">The long tail</p>
-        <canvas id="tailChart" role="img" aria-label="Illustrative long-tail curve: a few ICD codes are very frequent, most are rare"></canvas>
-        <p>Illustration: a handful of codes appear constantly, thousands barely appear at all. CoLa-ICD focuses on that tail.</p>
-      </div>
-    </article>
-  </section>
-
-  <section id="about">
-    <div class="sec-head">
+  <main>
+    <section class="about" id="about">
       <h2>About</h2>
-    </div>
-    <div class="two">
-      <div class="box card about">
-        <p>I'm a postgraduate researcher at the University of Otago working on clinical natural language processing. My current focus is automated ICD coding: reading free-text clinical documents and predicting the diagnosis and procedure codes they support.</p>
-        <p>Most coding systems do well on common codes and struggle with rare ones. I'm interested in bringing external medical knowledge into models so that the long tail gets coded properly too.</p>
-      </div>
-      <div class="box card">
-        <p class="label" style="margin-bottom:14px">Interests</p>
-        <div class="interests">
-          <span>Clinical NLP</span>
-          <span>ICD coding</span>
-          <span>Long-tail learning</span>
-          <span>Medical knowledge</span>
-          <span>Language models</span>
-          <span>Health informatics</span>
+      <p>I'm a PhD candidate in Computer Science at the University of Otago, working on <span class="hl">AI for clinical decision-making</span>. My research asks how language models can read clinical records reliably, and how they can act more like clinicians: gathering evidence step by step before reaching a diagnosis.</p>
+      <p>My current work covers two directions: automated ICD coding for rare, long-tail diagnoses, and medical AI agents for sequential clinical diagnosis. Before the PhD I trained in data science at the University of Leeds and worked as a data analyst in industry.</p>
+    </section>
+
+    <section id="news">
+      <h2>News</h2>
+      <ul class="news">
+        <li><span class="date">2026</span><p><span class="badge">Paper</span>CoLa-ICD accepted to <b>Findings of EMNLP 2026</b>. I'll be presenting it as a poster.</p></li>
+        <li><span class="date">2026.08</span><p>CoLa-ICD preprint released on <a href="https://arxiv.org/abs/2608.30234" target="_blank" rel="noopener">arXiv</a>.</p></li>
+        <li><span class="date">2026.02</span><p>Started as Postgraduate Representative for my department.</p></li>
+        <li><span class="date">2025</span><p>Tutored COSC326 Computational Problem Solving at Otago.</p></li>
+        <li><span class="date">2024.11</span><p>Started my PhD at the University of Otago.</p></li>
+      </ul>
+    </section>
+
+    <section id="publications">
+      <h2>Publications</h2>
+      <article class="pub">
+        <p class="venue">Findings of EMNLP 2026 · Poster</p>
+        <h3>CoLa-ICD: A Knowledge-Enhanced Framework for Long-Tail Automated Medical Coding</h3>
+        <p class="authors"><b>Yihang Cheng</b>, Veronica Liesaputra, Andrew Trotman</p>
+        <p class="result">On MIMIC-IV ICD-10, Macro-F1 rises to <strong>0.108</strong> from 0.069 (GKI-ICD). For codes seen only 1 to 10 times in training, Micro-F1 rises to <strong>0.204</strong> from 0.127.</p>
+        <div class="btns">
+          <a class="btn main" href="https://arxiv.org/abs/2608.30234" target="_blank" rel="noopener">arXiv</a>
+          <button class="btn" type="button" id="bibBtn" aria-expanded="false" aria-controls="bib">BibTeX</button>
+          <button class="btn" type="button" id="copyBib">Copy BibTeX</button>
+        </div>
+        <pre class="bib" id="bib">@inproceedings{cheng2026colaicd,
+  title     = {CoLa-ICD: A Knowledge-Enhanced Framework for Long-Tail Automated Medical Coding},
+  author    = {Cheng, Yihang and Liesaputra, Veronica and Trotman, Andrew},
+  booktitle = {Findings of the Association for Computational Linguistics: EMNLP 2026},
+  year      = {2026}
+}</pre>
+      </article>
+    </section>
+
+    <section id="research">
+      <h2>Research</h2>
+      <div class="research">
+        <div class="proj">
+          <h3>Long-tail automated medical coding <span class="status done">Published</span></h3>
+          <p>Most ICD codes appear only a handful of times in clinical data, so models tend to ignore them. CoLa-ICD brings in medical knowledge (UMLS synonyms and LLM-generated clinical terms) and a code co-occurrence graph, then uses term attention and label-aware contrastive learning to match clinical evidence to the right codes. Evaluated on MIMIC-III (ICD-9) and MIMIC-IV (ICD-10).</p>
+        </div>
+        <div class="proj">
+          <h3>Medical AI agents for sequential diagnosis <span class="status wip">Ongoing</span></h3>
+          <p>Real diagnosis is a process: a clinician asks questions, orders tests, and revises their judgement as results arrive. I'm building a language-model agent that does the same, choosing what to ask and which tests to order before committing to a diagnosis. The method combines knowledge-guided generation of diagnostic trajectories with reinforcement learning, aiming for accurate diagnoses at lower consultation cost.</p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="contact" class="box contact">
-    <p class="label">Contact</p>
-    <h2>Let's talk codes.</h2>
-    <p>Questions about CoLa-ICD, collaborations, or just clinical NLP chat are all welcome.</p>
-    <div class="mailrow">
-      <span class="mail" id="mail">yihang.cheng@postgrad.otago.ac.nz</span>
-      <button class="btn lift" id="copyBtn">Copy email</button>
-      <span class="copied" id="copied" aria-live="polite"></span>
-    </div>
-  </section>
+    <section id="experience">
+      <h2>Experience</h2>
+      <div class="group">
+        <h4>Education</h4>
+        <div class="row"><span class="date">2024.11 – now</span><div><b>PhD in Computer Science</b><div class="org">University of Otago, New Zealand · expected 2027</div></div></div>
+        <div class="row"><span class="date">2021.09 – 2022.11</span><div><b>MSc Data Science and Analytics</b>, Distinction<div class="org">University of Leeds, UK</div></div></div>
+        <div class="row"><span class="date">2016.09 – 2020.07</span><div><b>BEcon International Economy and Trade</b><div class="org">East China Jiaotong University, China</div></div></div>
+      </div>
+      <div class="group">
+        <h4>Research, teaching and service</h4>
+        <div class="row"><span class="date">2026.02 – now</span><div><b>Postgraduate Representative</b><div class="org">University of Otago</div><p class="note">Represent postgraduate students at departmental meetings.</p></div></div>
+        <div class="row"><span class="date">2025</span><div><b>Tutor, COSC326 Computational Problem Solving</b><div class="org">University of Otago</div><p class="note">Tutorials, lab support and marking for about 70 students.</p></div></div>
+        <div class="row"><span class="date">2022.08 – 2022.09</span><div><b>Summer School in Machine Learning</b><div class="org">University of Oxford</div></div></div>
+      </div>
+      <div class="group">
+        <h4>Industry</h4>
+        <div class="row"><span class="date">2022.10 – 2024.01</span><div><b>Data Analyst</b><div class="org">Sensors Data, Shenzhen</div><p class="note">User behaviour analysis with Python, SQL and machine learning; dashboards, client reporting and metric design.</p></div></div>
+      </div>
+    </section>
 
-  <footer>
-    <span>© 2026 Yihang Cheng</span>
-    <span>Dunedin, New Zealand</span>
-  </footer>
-</main>
+    <section id="more">
+      <h2>Skills and honours</h2>
+      <div class="two">
+        <ul class="plain">
+          <li><b>Languages:</b> Python, SQL, R</li>
+          <li><b>ML:</b> PyTorch, graph neural networks, contrastive learning, reinforcement learning</li>
+          <li><b>Data:</b> MIMIC-III, MIMIC-IV, UMLS, Tableau</li>
+        </ul>
+        <ul class="plain">
+          <li>Data Science Scholarship, ECJTU <span class="date">2021</span></li>
+          <li>First-class Scholarship, ECJTU <span class="date">2020</span></li>
+          <li>Second Prize, China University Business Challenge <span class="date">2019</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>© 2026 Yihang Cheng · Dunedin, New Zealand</footer>
+  </main>
+</div>
 
 <script>
 (function(){
-  var codes=[["I10","Essential hypertension"],["E11.9","Type 2 diabetes w/o complications"],["E78.5","Hyperlipidemia, unspecified"],["I50.9","Heart failure, unspecified"],["N17.9","Acute kidney failure, unspecified"],["J45.909","Asthma, uncomplicated"],["K21.9","GERD without esophagitis"],["D64.9","Anemia, unspecified"]];
-  var t=document.getElementById('track'),h='';
-  for(var k=0;k<2;k++)codes.forEach(function(c){h+='<span><b>'+c[0]+'</b> '+c[1]+'</span><span>✦</span>';});
-  t.innerHTML=h;
-
-  var root=document.documentElement,btn=document.getElementById('themeBtn');
-  btn.addEventListener('click',function(){
+  var root=document.documentElement;
+  document.getElementById('themeBtn').addEventListener('click',function(){
     var cur=root.getAttribute('data-theme');
     var dark=cur?cur==='dark':matchMedia('(prefers-color-scheme: dark)').matches;
     root.setAttribute('data-theme',dark?'light':'dark');
-    draw();
   });
-
-  var cb=document.getElementById('copyBtn'),msg=document.getElementById('copied'),mail=document.getElementById('mail');
+  var bib=document.getElementById('bib'),bb=document.getElementById('bibBtn');
+  bb.addEventListener('click',function(){var o=bib.classList.toggle('open');bb.setAttribute('aria-expanded',o);});
+  var cb=document.getElementById('copyBib');
   cb.addEventListener('click',function(){
-    var txt=mail.textContent;
-    function sel(){var r=document.createRange();r.selectNodeContents(mail);var s=getSelection();s.removeAllRanges();s.addRange(r);msg.textContent='Selected, press Ctrl/⌘ C';}
-    try{navigator.clipboard.writeText(txt).then(function(){msg.textContent='Copied';},sel);}catch(e){sel();}
+    var t=bib.textContent;
+    function sel(){bib.classList.add('open');var r=document.createRange();r.selectNodeContents(bib);var s=getSelection();s.removeAllRanges();s.addRange(r);cb.textContent='Selected';}
+    try{navigator.clipboard.writeText(t).then(function(){cb.textContent='Copied';setTimeout(function(){cb.textContent='Copy BibTeX';},1600);},sel);}catch(e){sel();}
   });
-
-  var cv=document.getElementById('tailChart');
-  function draw(){
-    var cs=getComputedStyle(root),ink=cs.getPropertyValue('--ink').trim(),amb=cs.getPropertyValue('--amber').trim(),pink=cs.getPropertyValue('--pink').trim();
-    var w=cv.clientWidth,hh=cv.clientHeight,d=window.devicePixelRatio||1;
-    cv.width=w*d;cv.height=hh*d;var x=cv.getContext('2d');x.setTransform(d,0,0,d,0,0);x.clearRect(0,0,w,hh);
-    var n=28,gap=2,bw=(w-gap*(n-1))/n;
-    for(var i=0;i<n;i++){
-      var v=1/Math.pow(i+1,1.1),bh=Math.max(3,v*(hh-8));
-      x.fillStyle=i<4?amb:pink;x.strokeStyle=ink;x.lineWidth=1.5;
-      x.fillRect(i*(bw+gap),hh-bh,bw,bh);x.strokeRect(i*(bw+gap)+.75,hh-bh+.75,bw-1.5,bh-1.5);
-    }
-  }
-  draw();addEventListener('resize',draw);
-  try{matchMedia('(prefers-color-scheme: dark)').addEventListener('change',draw);}catch(e){}
 })();
 </script>
 </body>
