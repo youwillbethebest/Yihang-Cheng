@@ -147,7 +147,7 @@ footer{font-size:13px;color:var(--ink-3);border-top:1px solid var(--rule);paddin
     <section class="about" id="about">
       <h2>About</h2>
       <p>I'm a PhD candidate in Computer Science at the University of Otago, working on <span class="hl">AI for clinical decision-making</span>. My research asks how language models can read clinical records reliably, and how they can act more like clinicians: gathering evidence step by step before reaching a diagnosis.</p>
-      <p>My current work covers two directions: automated ICD coding for rare, long-tail diagnoses, and medical AI agents for sequential clinical diagnosis. Before the PhD I trained in data science at the University of Leeds and worked as a data analyst in industry.</p>
+      <p>My current work covers automated ICD coding for rare, long-tail diagnoses, Semantic IDs for medical coding, and medical AI agents for interactive diagnosis. Before the PhD I trained in data science at the University of Leeds and worked as a data analyst in industry.</p>
     </section>
 
     <section id="news">
@@ -187,11 +187,15 @@ footer{font-size:13px;color:var(--ink-3);border-top:1px solid var(--rule);paddin
       <div class="research">
         <div class="proj">
           <h3>Long-tail automated medical coding <span class="status done">Published</span></h3>
-          <p>Most ICD codes appear only a handful of times in clinical data, so models tend to ignore them. CoLa-ICD brings in medical knowledge (UMLS synonyms and LLM-generated clinical terms) and a code co-occurrence graph, then uses term attention and label-aware contrastive learning to match clinical evidence to the right codes. Evaluated on MIMIC-III (ICD-9) and MIMIC-IV (ICD-10).</p>
+          <p>Most ICD codes are rare in clinical data, making them difficult for models to learn and easy to overlook. CoLa-ICD addresses this long-tail problem by enriching code representations with medical knowledge—including UMLS synonyms and LLM-generated clinical terms—and modeling relationships between codes through a co-occurrence graph. It then uses term-level attention and label-aware contrastive learning to better align clinical evidence with the appropriate ICD codes. We evaluate the approach on both MIMIC-III (ICD-9) and MIMIC-IV (ICD-10).</p>
         </div>
         <div class="proj">
-          <h3>Medical AI agents for sequential diagnosis <span class="status wip">Ongoing</span></h3>
-          <p>Real diagnosis is a process: a clinician asks questions, orders tests, and revises their judgement as results arrive. I'm building a language-model agent that does the same, choosing what to ask and which tests to order before committing to a diagnosis. The method combines knowledge-guided generation of diagnostic trajectories with reinforcement learning, aiming for accurate diagnoses at lower consultation cost.</p>
+          <h3>Medical AI agents for interactive diagnosis <span class="status wip">Ongoing</span></h3>
+          <p>Diagnosis rarely happens in a single step. Clinicians gather evidence over multiple interactions, continually refining a differential diagnosis as new information becomes available. I'm developing a language-model agent that learns this iterative process: deciding what to ask next, updating its diagnostic hypotheses, and eventually producing a final diagnosis. The project combines knowledge-guided diagnostic trajectories with reinforcement learning to improve both diagnostic reasoning and interaction efficiency.</p>
+        </div>
+        <div class="proj">
+          <h3>Semantic IDs for medical coding <span class="status wip">Ongoing</span></h3>
+          <p>ICD codes are symbolic identifiers whose surface forms carry little information about the clinical concepts they represent. I'm exploring Semantic IDs that reorganize the label space so that clinically related diagnoses share parts of a structured token sequence. Rather than generating ICD codes directly, language models predict these semantic representations under constrained decoding and map them back to valid ICD codes. The goal is to make the output space easier to learn by exposing relationships between labels that are hidden in conventional ICD identifiers.</p>
         </div>
       </div>
     </section>
@@ -202,7 +206,6 @@ footer{font-size:13px;color:var(--ink-3);border-top:1px solid var(--rule);paddin
         <h4>Education</h4>
         <div class="row"><span class="date">2024.11 – now</span><div><b>PhD in Computer Science</b><div class="org">University of Otago, New Zealand · expected 2027</div></div></div>
         <div class="row"><span class="date">2021.09 – 2022.11</span><div><b>MSc Data Science and Analytics</b>, Distinction<div class="org">University of Leeds, UK</div></div></div>
-        <div class="row"><span class="date">2016.09 – 2020.07</span><div><b>BEcon International Economy and Trade</b><div class="org">East China Jiaotong University, China</div></div></div>
       </div>
       <div class="group">
         <h4>Research, teaching and service</h4>
