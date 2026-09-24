@@ -77,7 +77,9 @@ h2::after{content:"";flex:1;height:1px;background:var(--rule)}
 .badge{display:inline-block;font:500 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:1px 7px;border:1.5px solid var(--ink);border-radius:4px;background:var(--amber);color:var(--lime-ink);margin-right:6px;vertical-align:1px}
 
 .pub{background:var(--paper);border:2.5px solid var(--ink);border-radius:14px;box-shadow:6px 6px 0 var(--shadow);padding:24px;display:flex;flex-direction:column;gap:12px}
-.venue{font:500 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
+.venue{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.vtag{font-family:var(--display);font-weight:800;font-size:15px;line-height:1.2;padding:5px 12px;background:var(--amber);color:var(--lime-ink);border:2px solid var(--ink);border-radius:8px;box-shadow:3px 3px 0 var(--shadow)}
+.vsub{font:500 11.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border:1.5px solid var(--ink);border-radius:999px;color:var(--ink)}
 .pub h3{font-size:21px;font-weight:600;line-height:1.25}
 .authors{color:var(--ink-2)}
 .authors b{color:var(--ink);font-weight:600}
@@ -164,7 +166,7 @@ footer{font-size:13px;color:var(--ink-3);border-top:1px solid var(--rule);paddin
     <section id="publications">
       <h2>Publications</h2>
       <article class="pub">
-        <p class="venue">Findings of EMNLP 2026 · Poster</p>
+        <div class="venue"><span class="vtag">Findings of EMNLP 2026</span><span class="vsub">Poster</span><span class="vsub">First author</span></div>
         <h3>CoLa-ICD: A Knowledge-Enhanced Framework for Long-Tail Automated Medical Coding</h3>
         <p class="authors"><b>Yihang Cheng</b>, Veronica Liesaputra, Andrew Trotman</p>
         <p class="result">On MIMIC-IV ICD-10, Macro-F1 rises to <strong>0.108</strong> from 0.069 (GKI-ICD). For codes seen only 1 to 10 times in training, Micro-F1 rises to <strong>0.204</strong> from 0.127.</p>
