@@ -74,7 +74,7 @@ h2::after{content:"";flex:1;height:1px;background:var(--rule)}
 .news{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
 .news li{display:grid;grid-template-columns:78px minmax(0,1fr);gap:14px}
 .date{font-family:var(--mono);font-size:13px;color:var(--ink-3);padding-top:2px;font-variant-numeric:tabular-nums}
-.badge{display:inline-block;font:500 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:1px 7px;border:1.5px solid var(--ink);border-radius:4px;background:var(--amber);color:var(--lime-ink);margin-right:6px;vertical-align:1px}
+.badge{display:inline-block;font:500 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:1px 7px;border:1.5px solid var(--ink);border-radius:4px;background:var(--lime);color:var(--lime-ink);margin-right:6px;vertical-align:1px}
 
 .pub{background:var(--paper);border:2.5px solid var(--ink);border-radius:14px;box-shadow:6px 6px 0 var(--shadow);padding:24px;display:flex;flex-direction:column;gap:12px}
 .venue{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
@@ -83,8 +83,13 @@ h2::after{content:"";flex:1;height:1px;background:var(--rule)}
 .pub h3{font-size:21px;font-weight:600;line-height:1.25}
 .authors{color:var(--ink-2)}
 .authors b{color:var(--ink);font-weight:600}
-.result{font-size:15px;color:var(--ink-2);border-left:3px solid var(--lime);padding-left:12px}
-.result strong{color:var(--ink);font-weight:600}
+.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.stat{border:1.5px solid var(--ink);border-radius:10px;padding:10px 14px;background:var(--bg)}
+.stat .big{font-family:var(--display);font-weight:800;font-size:28px;line-height:1.1;display:flex;align-items:baseline;flex-wrap:wrap;gap:6px}
+.stat .was{font:400 13px var(--mono);color:var(--ink-3)}
+.stat .up{font:500 12px var(--mono);background:var(--lime);color:var(--lime-ink);border:1.5px solid var(--ink);border-radius:4px;padding:0 6px}
+.stat .cap{font-size:13px;color:var(--ink-2);margin-top:4px;line-height:1.4}
+.otag{display:inline-block;font:500 11px var(--mono);letter-spacing:.04em;text-transform:uppercase;border:1.5px solid var(--ink);border-radius:999px;padding:0 8px;margin-left:6px;vertical-align:2px;color:var(--ink)}
 .btns{display:flex;gap:10px;flex-wrap:wrap}
 .btn{font:500 13px var(--mono);padding:6px 12px;border:2px solid var(--ink);border-radius:8px;background:var(--paper);color:var(--ink);text-decoration:none;box-shadow:3px 3px 0 var(--shadow);cursor:pointer;transition:transform .12s,box-shadow .12s}
 .btn:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--shadow);text-decoration:none}
@@ -120,6 +125,7 @@ footer{font-size:13px;color:var(--ink-3);border-top:1px solid var(--rule);paddin
 @media (max-width:480px){
   .news li{grid-template-columns:minmax(0,1fr);gap:0}
   .pub{padding:18px}
+  .stats{grid-template-columns:minmax(0,1fr)}
 }
 @media (prefers-reduced-motion:reduce){.btn{transition:none}}
 </style>
@@ -155,7 +161,7 @@ footer{font-size:13px;color:var(--ink-3);border-top:1px solid var(--rule);paddin
     <section id="news">
       <h2>News</h2>
       <ul class="news">
-        <li><span class="date">2026</span><p><span class="badge">Paper</span>CoLa-ICD accepted to <b>Findings of EMNLP 2026</b>. I'll be presenting it as a poster.</p></li>
+        <li><span class="date">2026</span><p><span class="badge">Accepted</span>CoLa-ICD accepted to <b>Findings of EMNLP 2026</b>. I'll be presenting it as a poster.</p></li>
         <li><span class="date">2026.08</span><p>CoLa-ICD preprint released on <a href="https://arxiv.org/abs/2608.30234" target="_blank" rel="noopener">arXiv</a>.</p></li>
         <li><span class="date">2026.02</span><p>Started as Postgraduate Representative for my department.</p></li>
         <li><span class="date">2025</span><p>Tutored COSC326 Computational Problem Solving at Otago.</p></li>
@@ -169,7 +175,10 @@ footer{font-size:13px;color:var(--ink-3);border-top:1px solid var(--rule);paddin
         <div class="venue"><span class="vtag">Findings of EMNLP 2026</span><span class="vsub">Poster</span><span class="vsub">First author</span></div>
         <h3>CoLa-ICD: A Knowledge-Enhanced Framework for Long-Tail Automated Medical Coding</h3>
         <p class="authors"><b>Yihang Cheng</b>, Veronica Liesaputra, Andrew Trotman</p>
-        <p class="result">On MIMIC-IV ICD-10, Macro-F1 rises to <strong>0.108</strong> from 0.069 (GKI-ICD). For codes seen only 1 to 10 times in training, Micro-F1 rises to <strong>0.204</strong> from 0.127.</p>
+        <div class="stats">
+          <div class="stat"><div class="big">0.108 <span class="was">vs 0.069</span><span class="up">+57%</span></div><p class="cap">Macro-F1 on MIMIC-IV ICD-10, compared with GKI-ICD</p></div>
+          <div class="stat"><div class="big">0.204 <span class="was">vs 0.127</span><span class="up">+61%</span></div><p class="cap">Micro-F1 on rare codes seen only 1 to 10 times in training</p></div>
+        </div>
         <div class="btns">
           <a class="btn main" href="https://arxiv.org/abs/2608.30234" target="_blank" rel="noopener">arXiv</a>
           <button class="btn" type="button" id="bibBtn" aria-expanded="false" aria-controls="bib">BibTeX</button>
@@ -207,7 +216,7 @@ footer{font-size:13px;color:var(--ink-3);border-top:1px solid var(--rule);paddin
       <div class="group">
         <h4>Education</h4>
         <div class="row"><span class="date">2024.11 – now</span><div><b>PhD in Computer Science</b><div class="org">University of Otago, New Zealand · expected 2027</div></div></div>
-        <div class="row"><span class="date">2021.09 – 2022.11</span><div><b>MSc Data Science and Analytics</b>, Distinction<div class="org">University of Leeds, UK</div></div></div>
+        <div class="row"><span class="date">2021.09 – 2022.11</span><div><b>MSc Data Science and Analytics</b><span class="otag">Distinction</span><div class="org">University of Leeds, UK</div></div></div>
       </div>
       <div class="group">
         <h4>Research, teaching and service</h4>
