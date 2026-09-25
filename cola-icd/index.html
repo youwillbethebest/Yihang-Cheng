@@ -16,11 +16,11 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.48.0/dist/tabler-icons.min.css">
 <style>
 :root{
-  --bg:#FAF9F5; --surface-1:#F3F2EE; --surface-2:#FFFFFF;
-  --text-primary:#141413; --text-secondary:#5E5D59; --text-muted:#8A8983;
-  --border:rgba(20,20,19,.12); --border-strong:rgba(20,20,19,.22);
-  --accent:#2C6FD1; --accent-text:#1F5AB0; --accent-bg:#E6F0FC;
-  --success:#2E7D32; --bar-base:rgba(20,20,19,.18);
+  --bg:#FAF7F2; --surface-1:#F2EDE5; --surface-2:#FFFDFA;
+  --text-primary:#1E1812; --text-secondary:#6A5E52; --text-muted:#8E8275;
+  --border:rgba(30,24,18,.12); --border-strong:rgba(30,24,18,.22);
+  --accent:#C4643A; --accent-text:#9C4A26; --accent-bg:#FAEBE3;
+  --success:#3B7A3E; --bar-base:rgba(30,24,18,.16);
   --radius:8px;
   --sans:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
   --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
@@ -28,20 +28,20 @@
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
     color-scheme:dark;
-    --bg:#1F1F1D; --surface-1:#2A2A27; --surface-2:#262624;
-    --text-primary:#F2F1EC; --text-secondary:#B7B5AD; --text-muted:#8C8A83;
-    --border:rgba(242,241,236,.12); --border-strong:rgba(242,241,236,.24);
-    --accent:#5C9BEF; --accent-text:#8DB9F5; --accent-bg:#1E3350;
-    --success:#7CC47F; --bar-base:rgba(242,241,236,.22);
+    --bg:#1E1A16; --surface-1:#2A2520; --surface-2:#25201B;
+    --text-primary:#F3EDE6; --text-secondary:#BFB3A6; --text-muted:#948879;
+    --border:rgba(243,237,230,.12); --border-strong:rgba(243,237,230,.24);
+    --accent:#E08A5E; --accent-text:#F0A57F; --accent-bg:#4A2A1B;
+    --success:#86C488; --bar-base:rgba(243,237,230,.2);
   }
 }
 :root[data-theme="dark"]{
   color-scheme:dark;
-  --bg:#1F1F1D; --surface-1:#2A2A27; --surface-2:#262624;
-  --text-primary:#F2F1EC; --text-secondary:#B7B5AD; --text-muted:#8C8A83;
-  --border:rgba(242,241,236,.12); --border-strong:rgba(242,241,236,.24);
-  --accent:#5C9BEF; --accent-text:#8DB9F5; --accent-bg:#1E3350;
-  --success:#7CC47F; --bar-base:rgba(242,241,236,.22);
+  --bg:#1E1A16; --surface-1:#2A2520; --surface-2:#25201B;
+  --text-primary:#F3EDE6; --text-secondary:#BFB3A6; --text-muted:#948879;
+  --border:rgba(243,237,230,.12); --border-strong:rgba(243,237,230,.24);
+  --accent:#E08A5E; --accent-text:#F0A57F; --accent-bg:#4A2A1B;
+  --success:#86C488; --bar-base:rgba(243,237,230,.2);
 }
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--text-primary);font-family:var(--sans);font-size:16px;line-height:1.7;padding:0 16px 64px}
