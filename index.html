@@ -200,16 +200,16 @@ footer{font-size:13px;color:var(--ink-3);border-top:1px solid var(--rule);paddin
       <h2>Research</h2>
       <div class="research">
         <div class="proj">
-          <h3>Long-tail automated medical coding <span class="status done">Published</span></h3>
-          <p>Most ICD codes are rare in clinical data, making them difficult for models to learn and easy to overlook. CoLa-ICD addresses this long-tail problem by enriching code representations with medical knowledge—including UMLS synonyms and LLM-generated clinical terms—and modeling relationships between codes through a co-occurrence graph. It then uses term-level attention and label-aware contrastive learning to better align clinical evidence with the appropriate ICD codes. We evaluate the approach on both MIMIC-III (ICD-9) and MIMIC-IV (ICD-10).</p>
+          <h3>Long-tail Automated Medical Coding <span class="status done">Published</span></h3>
+          <p>My work on automated medical coding focuses on rare ICD codes, where limited training examples make conventional models difficult to generalize. <b>CoLa-ICD</b> combines medical terminology knowledge, relationships between ICD codes, and clinical evidence alignment to improve long-tail prediction. The method was evaluated on MIMIC-III and MIMIC-IV and is published in Findings of EMNLP 2026.</p>
         </div>
         <div class="proj">
-          <h3>Medical AI agents for interactive diagnosis <span class="status wip">Ongoing</span></h3>
-          <p>Diagnosis rarely happens in a single step. Clinicians gather evidence over multiple interactions, continually refining a differential diagnosis as new information becomes available. I'm developing a language-model agent that learns this iterative process: deciding what to ask next, updating its diagnostic hypotheses, and eventually producing a final diagnosis. The project combines knowledge-guided diagnostic trajectories with reinforcement learning to improve both diagnostic reasoning and interaction efficiency.</p>
+          <h3>LLM Agents for Sequential Clinical Diagnosis <span class="status wip">Ongoing</span></h3>
+          <p>I'm developing LLM agents that approach diagnosis as a sequential decision-making problem. The agent interacts with a simulated patient environment, decides which questions or tests to request, maintains a diagnostic state, and updates its differential diagnosis as new evidence becomes available. My current work focuses on <b>agent harness design and post-training</b>, including trajectory generation and reinforcement learning, as well as evaluating diagnostic accuracy, evidence acquisition, interaction efficiency, and consultation cost.</p>
         </div>
         <div class="proj">
-          <h3>Semantic IDs for medical coding <span class="status wip">Ongoing</span></h3>
-          <p>ICD codes are symbolic identifiers whose surface forms carry little information about the clinical concepts they represent. I'm exploring Semantic IDs that reorganize the label space so that clinically related diagnoses share parts of a structured token sequence. Rather than generating ICD codes directly, language models predict these semantic representations under constrained decoding and map them back to valid ICD codes. The goal is to make the output space easier to learn by exposing relationships between labels that are hidden in conventional ICD identifiers.</p>
+          <h3>Semantic IDs for Generative Medical Coding <span class="status wip">Ongoing</span></h3>
+          <p>I'm exploring structured output representations for generative medical coding. Instead of generating ICD codes directly, language models predict <b>Semantic IDs</b> that allow related diagnoses to share parts of their representation while preserving exact code identity. The project studies how the organization of the output space affects learning, generation, and long-tail medical coding.</p>
         </div>
       </div>
     </section>
